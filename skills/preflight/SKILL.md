@@ -1,6 +1,6 @@
 ---
 name: preflight
-description: 动手写代码前做一次对称决策预研 / Symmetric pre-flight research before writing code。钉死一句话需求 → 按「标准/协议 → 标准库 → OS 原生 → 项目已有代码 → SDK → 框架 → 第三方库 → 开源项目 → 自研」由便宜到贵的层级找现成方案并外部核实维护状态 → 实测基线并把「做」与「不做」两侧同口径摆出来 → 输出 复用/组合/改造/自研/不做 五选一结论。当用户开新项目或新模块、问「有没有现成的库」「要不要自己造轮子」「这个功能值不值得加」「现在改还是先跑一段看」、做方案选型或可行性判断时使用；also use for build-vs-buy, tech stack selection, feasibility, "should I write this myself", dependency-adoption decisions；实现中途冒出技术风险（要引新依赖/改架构/动认证或网络）时也触发。纯改 bug、修报错、纯重构、用户已指定依赖或已定好实现方式时不要用。
+description: 动手写代码前做一次对称决策预研 / Symmetric pre-flight research before writing code。钉死一句话需求 → 按「标准/协议 → 标准库 → OS 原生 → 项目已有代码 → SDK → 框架 → 第三方库 → 开源项目 → 自研」由便宜到贵的层级找现成方案并外部核实维护状态 → 实测基线并把「做」与「不做」两侧同口径摆出来 → 输出 复用/组合/改造/自研/不做/暂缓 六选一结论。当用户开新项目或新模块、问「有没有现成的库」「要不要自己造轮子」「这个功能值不值得加」「现在改还是先跑一段看」、做方案选型或可行性判断时使用；also use for build-vs-buy, tech stack selection, feasibility, "should I write this myself", dependency-adoption decisions；实现中途冒出技术风险（要引新依赖/改架构/动认证或网络）时也触发。纯改 bug、修报错、纯重构、用户已指定依赖或已定好实现方式时不要用。
 when_to_use: 写实现代码之前，判断要不要做、用什么做
 argument-hint: <一句话需求>
 ---
