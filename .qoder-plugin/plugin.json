@@ -1,6 +1,6 @@
 {
   "name": "preflight",
   "displayName": "Preflight",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "对称决策预研：写代码前先判断要不要做、用什么做"
 }
