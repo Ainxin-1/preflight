@@ -35,6 +35,18 @@
 | 首屏延迟 | Lighthouse / Performance API 取 LCP 中位数 | 别用一次冷跑的极值 |
 | 全局状态数 | 数新增的 store/context 实例 | 每多一个全局状态就多一处真相来源 |
 
+## 示例口径 C：移动端（Android）— 2026-09-20 真机核对
+
+设备 Android 17 / SDK 37，命令与字段名均已实跑确认。
+
+| 指标 | 命令 | 注意 |
+|---|---|---|
+| 常驻内存 | `adb shell dumpsys meminfo <package>` | 单位 KB。看 **Pss Total**（其次 Private Dirty），**别看 Rss Total** —— Rss 把共享库重复计给每个进程，跨应用比较必然虚高。表头字段：Pss Total / Private Dirty / Private Clean / SwapPss Dirty / Rss Total / Heap Size·Alloc·Free |
+| 安装包体积 | `adb shell pm path <package>` 取路径 → `adb shell ls -l <path>` 取字节数 | 这是**已解压安装态**的 base.apk 大小，不等于商店下载体积；split APK 需把每个 `.apk` 相加 |
+| 冷启动 | `adb shell am start -W -n <package>/<activity>` 读 `TotalTime` | **未在真机验证**：它会真的把应用拉到用户前台，属于改动设备状态的动作，需先得到同意 |
+
+无线调试注意：`adb connect` 的**端口每次重启或取消无线调试都会变**，别记旧端口——用 `adb mdns services` 重新发现；adb server 一旦重启，已建立的无线连接不会自动恢复，要重新 `connect`。
+
 ## 换环境时先探测
 
 命令可用性因机器而异，用前先测：`command -v <cmd>` 或 `where <cmd>`。**shell 无外网的环境里**，`cargo add`、`git clone`、`curl` 都会失败——依赖信息改用可用的外部检索工具查注册表页，别拿安装命令试；连检索能力都没有时，把相关结论标成「未外部验证」。
